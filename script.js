@@ -1,11 +1,32 @@
 // Declare global variables
-let numRows = 0;
-let numCols = 0;
-let colorSelected; 
+let numRows = 2;
+let numCols = 3;
+let colorSelected;
+let newCell;
+let Row;
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    if(numCols == 0 && numRows == 0)
+    {
+        const tab = document.getElementById('grid');
+        Row = tab.insertRow(-1);
+        newCell = Row.insertCell(-1);
+        newCell.addEventListener('click', function() {color(this);});
+        numRows++;
+        numCols++;
+    }
+    else
+    {
+        const tab = document.getElementById('grid');
+        Row = tab.insertRow(-1);
+        for(let i = 0; i < tab.rows[0].cells.length; i++)
+        {
+            newCell = Row.insertCell(-1);
+            newCell.addEventListener('click', function() {color(this);});
+        }
+        numRows++;
+    }
 }
 
 // Add a column
