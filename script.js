@@ -31,7 +31,25 @@ function addR() {
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    if(numCols == 0 && numRows == 0)
+    {
+        const tab = document.getElementById('grid');
+        Row = tab.insertRow(-1);
+        newCell = Row.insertCell(-1);
+        newCell.addEventListener('click', function() {color(this);});
+        numCols++;
+        numRows++;
+    }
+    else
+    {
+        const tab = document.getElementById('grid');
+        for(let i = 0; i < tab.rows.length; i++)
+        {
+            newCell = tab.rows[i].insertCell(-1);
+            newCell.addEventListener('click', function() {color(this);});
+        }
+        numCols++;
+    }
 }
 
 // Remove a row
