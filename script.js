@@ -95,7 +95,21 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    const tab = document.getElementById('grid');
+    for(let i = 0; i < numRows; i++)
+    {
+        for(let j = 0; j < numCols; j++)
+        {
+            if(tab.rows[i].cells[j].hasAttribute("style"))
+            {
+                continue;
+            }
+            else
+            {
+                tab.rows[i].cells[j].style.backgroundColor = selectColor();
+            }
+        }
+    }
 }
 
 // Fill all cells
@@ -106,4 +120,8 @@ function fillAll(){
 // Clear all cells
 function clearAll(){
     alert("Clicked Clear All"); // Replace this line with your code.
+}
+
+function color(cell){
+    cell.style.backgroundColor = selectColor();
 }
