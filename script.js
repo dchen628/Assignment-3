@@ -88,7 +88,9 @@ function removeC() {
 // Set global variable for selected color
 function selectColor(){
     colorSelected = document.getElementById("selectedColorId").value;
-    console.log(colorSelected);
+    if(colorSelected == "SELECT")
+        return;
+    return colorSelected;
 }
 
 // Fill all uncolored cells
