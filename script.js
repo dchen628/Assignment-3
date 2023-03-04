@@ -126,7 +126,14 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    const tab = document.getElementById('grid');
+    for(let i = 0; i < numRows; i++)
+    {
+        for(let j = 0; j < numCols; j++)
+        {
+            tab.rows[i].cells[j].removeAttribute("style");
+        }
+    }
 }
 
 function color(cell){
