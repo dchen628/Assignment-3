@@ -67,7 +67,22 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    if(numCols == 0)
+        return;
+    const tab = document.getElementById('grid');
+    for(let i = 0; i < tab.rows.length; i++)
+    {
+        newCell = tab.rows[i].deleteCell(-1);
+    }
+    numCols--;
+    if(numCols == 0)
+    {
+        numRows = 0;
+        while(tab.rows.length != 0)
+        {
+            tab.deleteRow(-1);
+        }
+    }
 }
 
 // Set global variable for selected color
