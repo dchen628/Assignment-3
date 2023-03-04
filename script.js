@@ -54,7 +54,15 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    if(numRows == 0)
+        return;
+    const tab = document.getElementById('grid');
+    Row = tab.deleteRow(-1);
+    numRows--;
+    if(numRows == 0)
+    {
+        numCols = 0;
+    }
 }
 
 // Remove a column
